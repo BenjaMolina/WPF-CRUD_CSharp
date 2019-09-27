@@ -8,7 +8,7 @@ using WPF_CRUD.Models;
 
 namespace WPF_CRUD.ViewModels
 {
-    class PersonasViewModel
+    class PersonasViewModel : BaseViewModel
     {
         private ObservableCollection<Persona> _listaPersonas =  new ObservableCollection<Persona>();
 
