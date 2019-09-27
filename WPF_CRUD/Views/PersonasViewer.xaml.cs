@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_CRUD.Views;
 
-namespace WPF_CRUD
+namespace WPF_CRUD.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PersonasViewer.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PersonasViewer : Window
     {
-        public MainWindow()
+        public PersonasViewer()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            PersonasViewer p = new PersonasViewer();
-            p.ShowDialog();
-            this.Show();
-            
         }
     }
 }
