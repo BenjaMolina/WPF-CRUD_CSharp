@@ -55,8 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Enlaces\Commands\ParamCommand.cs" />
     <Compile Include="Enlaces\IEnlace.cs" />
     <Compile Include="Enlaces\BaseViewModel.cs" />
+    <Compile Include="Enlaces\Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\PersonasViewModel.cs" />
     <Compile Include="Views\PersonasViewer.xaml.cs">
       <DependentUpon>PersonasViewer.xaml</DependentUpon>
