@@ -38,6 +38,12 @@ namespace WPF_CRUD.Models
             this.FechaNaci = fechaNaci;
         }
 
+        public Persona(int id, string nombre)
+        {
+            this.Id = id;
+            this.Nombre = nombre;
+        }
+
         public override string ToString()
         {
             return this.Nombre;

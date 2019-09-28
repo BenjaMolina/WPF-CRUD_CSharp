@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connector\DbConnector.cs" />
     <Compile Include="Enlaces\Commands\ParamCommand.cs" />
     <Compile Include="Enlaces\IEnlace.cs" />
     <Compile Include="Enlaces\BaseViewModel.cs" />
