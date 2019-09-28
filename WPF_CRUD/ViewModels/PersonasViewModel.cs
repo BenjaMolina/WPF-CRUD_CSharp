@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using WPF_CRUD.Enlaces;
 using WPF_CRUD.Models;
 
 namespace WPF_CRUD.ViewModels
@@ -24,6 +27,23 @@ namespace WPF_CRUD.ViewModels
             set => currentPersona = value;
         }
 
+        private ICommand _listarPersonasCommand;
+        public ICommand ListarPersonasCommand
+        {
+            get
+            {
+                if (_listarPersonasCommand == null)
+                    _listarPersonasCommand = new RelayCommand(new Action(ListarPersonas));
+                return _listarPersonasCommand;
+            }
+        }
+
+
         public PersonasViewModel()  { }
+
+        private void ListarPersonas()
+        {
+            MessageBox.Show("Listando Personas");
+        }
     }
 }
