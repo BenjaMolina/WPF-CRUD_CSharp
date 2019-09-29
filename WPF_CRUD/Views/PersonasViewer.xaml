@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_CRUD.Views"
         xmlns:vm="clr-namespace:WPF_CRUD.ViewModels"
         mc:Ignorable="d"
-        Title="PersonasViewer" Height="450" Width="800">
+        Title="PersonasViewer" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <vm:PersonasViewModel x:Key="PersonasVM" />
     </Window.Resources>
@@ -17,8 +17,25 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListBox ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding CurrentPersona}"
-                 Grid.ColumnSpan="2" />
+        <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding ListaPersonas}" 
+                 SelectedItem="{Binding CurrentPersona}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Id}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Nombre}" Foreground="#FF3276C7"/>
+                        <Button Command="{Binding VerInfoCommand}" Grid.Column="2" Content="Ver Info" Background="White"/>
+                        <Button Grid.Column="3" Content="Eliminar" Background="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Label Grid.Row="1" Content="{Binding ListaPersonas.Count}" HorizontalAlignment="Left"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Command="{Binding VerInfoCommand}"
