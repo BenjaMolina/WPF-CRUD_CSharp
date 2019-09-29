@@ -89,6 +89,18 @@ namespace WPF_CRUD.ViewModels
             }
         }
 
+        private ICommand _eliminarCommand;
+        public ICommand EliminarCommand
+        {
+            get
+            {
+                if (_eliminarCommand == null)
+                    _eliminarCommand = new ParamCommand(new Action<object>(EliminarPersona));
+
+                return _eliminarCommand;
+            }
+        }
+
 
         public PersonasViewModel()
         {
@@ -114,6 +126,19 @@ namespace WPF_CRUD.ViewModels
                 MessageBox.Show($"Ver mas: {CurrentPersona.Nombre}");
             }
                 
+        }
+
+        private void EliminarPersona(object persona)
+        {
+            if(persona != null)
+            {
+                CurrentPersona = (Persona)persona;
+                if (MessageBox.Show($"Eliminar a: {CurrentPersona.Nombre}") == MessageBoxResult.OK)
+                {
+                    ListaPersonas.Remove(CurrentPersona);
+                }
+                    
+            }
         }
     }
 }

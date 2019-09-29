@@ -38,7 +38,14 @@
                                 CommandParameter="{Binding DataContext, 
                                                    RelativeSource={RelativeSource Self}}"
                         />
-                        <Button Grid.Column="3" Content="Eliminar" Background="White"/>
+                        <Button Grid.Column="3" Content="Eliminar" Background="White"
+                                Command="{Binding DataContext.EliminarCommand,
+                                           RelativeSource={RelativeSource 
+                                                           Mode=FindAncestor,
+                                                           AncestorType={x:Type ListBox}}}"
+                                CommandParameter="{Binding DataContext,
+                                                   RelativeSource={RelativeSource Self}}"
+                         />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
