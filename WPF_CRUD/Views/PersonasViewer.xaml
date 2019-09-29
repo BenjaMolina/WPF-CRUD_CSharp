@@ -11,19 +11,22 @@
         <vm:PersonasViewModel x:Key="PersonasVM" />
     </Window.Resources>
     <Grid DataContext="{StaticResource PersonasVM}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="461*"/>
-            <ColumnDefinition Width="331*"/>
-        </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ListBox ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding CurrentPersona}" Grid.ColumnSpan="2"/>
+        <ListBox ItemsSource="{Binding ListaPersonas}" SelectedItem="{Binding CurrentPersona}"
+                 Grid.ColumnSpan="2" />
         <Label Grid.Row="1" Content="{Binding ListaPersonas.Count}" HorizontalAlignment="Left"/>
-        <Button Command="{Binding ListarPersonasCommand}" Grid.Row="1" 
-                Content="Listar Personas" HorizontalAlignment="Right" Grid.Column="1" 
-                Width="100"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Command="{Binding VerInfoCommand}"
+                Content="Ver info" HorizontalAlignment="Right"
+                Padding="10 0"  Margin="0 0 10 0"/>
+            <Button Command="{Binding ListarPersonasCommand}"
+                Content="Listar Personas" HorizontalAlignment="Right"
+                Width="100" />
+        </StackPanel>
     </Grid>
 </Window>

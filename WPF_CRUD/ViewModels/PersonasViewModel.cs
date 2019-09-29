@@ -23,8 +23,20 @@ namespace WPF_CRUD.ViewModels
             set
             {
                 _listaPersonas = value;
+                if(value != null && value.Count > 0)
+                {
+                    //Se selecciona por defecto el primer valor
+                    this.CurrentPersona = value[0];
+                }
+
+                //Notificamos el cambio para la vista
                 RaisePropertyChanged("ListaPersonas");
             }
+        }
+
+        private bool CanShowInfo
+        {
+            get => CurrentPersona != null;
         }
 
         private Persona currentPersona;
@@ -34,7 +46,9 @@ namespace WPF_CRUD.ViewModels
             set
             {
                 currentPersona = value;
-                RaisePropertyChanged("CurrentPersona"); //Notificamos el cambio para la vista
+                //Notificamos el cambio para la vista
+                RaisePropertyChanged("CurrentPersona");
+                RaisePropertyChanged("canShowInfo");
             }
         }
 
@@ -49,15 +63,34 @@ namespace WPF_CRUD.ViewModels
             }
         }
 
+        private ICommand _verInfoCommand;
+        public ICommand VerInfoCommand
+        {
+            get
+            {
+                if (_verInfoCommand == null)
+                    //Habilita o desabilita el boton de acuerdo a la propiedad CanShowInfo
+                    _verInfoCommand = new RelayCommand(new Action(VerInfo), () => CanShowInfo);
+
+                return _verInfoCommand;
+            }
+        }
+
 
         public PersonasViewModel()
         {
             db = DbConnector.getInstance();
+            ListarPersonas();
         }
 
         private void ListarPersonas()
         {
             ListaPersonas = db.listarPersonas();
+        }
+
+        private void VerInfo()
+        {
+            MessageBox.Show(this.CurrentPersona.Nombre);
         }
     }
 }
