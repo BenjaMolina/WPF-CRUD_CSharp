@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using WPF_CRUD.Connector;
 using WPF_CRUD.Enlaces;
+using WPF_CRUD.Enlaces.Commands;
 using WPF_CRUD.Models;
 
 namespace WPF_CRUD.ViewModels
@@ -76,6 +77,18 @@ namespace WPF_CRUD.ViewModels
             }
         }
 
+        private ICommand _verMasCommand;
+        public ICommand VerMasCommand
+        {
+            get
+            {
+                if (_verMasCommand == null)
+                    _verMasCommand = new ParamCommand(new Action<object>(VerMas));
+
+                return _verMasCommand;
+            }
+        }
+
 
         public PersonasViewModel()
         {
@@ -91,6 +104,16 @@ namespace WPF_CRUD.ViewModels
         private void VerInfo()
         {
             MessageBox.Show(this.CurrentPersona.Nombre);
+        }
+
+        private void VerMas(object persona)
+        {
+            if (persona != null)
+            {
+                CurrentPersona = (Persona)persona;
+                MessageBox.Show($"Ver mas: {CurrentPersona.Nombre}");
+            }
+                
         }
     }
 }

@@ -30,7 +30,14 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Id}"/>
                         <TextBlock Grid.Column="1" Text="{Binding Nombre}" Foreground="#FF3276C7"/>
-                        <Button Command="{Binding VerInfoCommand}" Grid.Column="2" Content="Ver Info" Background="White"/>
+                        <Button Grid.Column="2" Content="Ver Mas" Background="White"
+                                Command="{Binding DataContext.VerMasCommand, 
+                                          RelativeSource={RelativeSource 
+                                                          Mode=FindAncestor, 
+                                                          AncestorType={x:Type ListBox}}}"
+                                CommandParameter="{Binding DataContext, 
+                                                   RelativeSource={RelativeSource Self}}"
+                        />
                         <Button Grid.Column="3" Content="Eliminar" Background="White"/>
                     </Grid>
                 </DataTemplate>
