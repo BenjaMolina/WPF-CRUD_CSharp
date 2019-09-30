@@ -1,0 +1,25 @@
+﻿<Window x:Class="WPF_CRUD.Views.PersonaDetalleViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_CRUD.Views"
+        mc:Ignorable="d"
+        Title="PersonaDetalleViewer" Height="300" Width="450" 
+        WindowStartupLocation="CenterScreen" >
+    <Grid >
+        <Label Content="Id" HorizontalAlignment="Left" 
+               Margin="102,96,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox Text="{Binding PersonaDetalle.Id}" HorizontalAlignment="Left" Height="24" 
+                 Margin="148,106,0,0" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="244"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" 
+            Margin="51,145,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox Text="{Binding PersonaDetalle.Nombre}" HorizontalAlignment="Left" Height="24" 
+            Margin="148,155,0,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" Width="244"/>
+        <Button Command="{Binding VerInfoCommand}" Content="Ver info" HorizontalAlignment="Left" 
+                Margin="220,215,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

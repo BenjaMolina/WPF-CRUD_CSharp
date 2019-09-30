@@ -60,7 +60,11 @@
     <Compile Include="Enlaces\IEnlace.cs" />
     <Compile Include="Enlaces\BaseViewModel.cs" />
     <Compile Include="Enlaces\Commands\RelayCommand.cs" />
+    <Compile Include="ViewModels\DetallePersonaViewModel.cs" />
     <Compile Include="ViewModels\PersonasViewModel.cs" />
+    <Compile Include="Views\PersonaDetalleViewer.xaml.cs">
+      <DependentUpon>PersonaDetalleViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonasViewer.xaml.cs">
       <DependentUpon>PersonasViewer.xaml</DependentUpon>
     </Compile>
@@ -76,6 +80,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PersonaDetalleViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PersonasViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

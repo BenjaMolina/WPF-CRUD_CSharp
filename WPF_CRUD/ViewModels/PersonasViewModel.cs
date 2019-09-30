@@ -10,6 +10,7 @@ using WPF_CRUD.Connector;
 using WPF_CRUD.Enlaces;
 using WPF_CRUD.Enlaces.Commands;
 using WPF_CRUD.Models;
+using WPF_CRUD.Views;
 
 namespace WPF_CRUD.ViewModels
 {
@@ -123,6 +124,12 @@ namespace WPF_CRUD.ViewModels
             if (persona != null)
             {
                 CurrentPersona = (Persona)persona;
+                //MessageBox.Show($"Ver mas: {CurrentPersona.Nombre}");
+
+                DetallePersonaViewModel detalleViewModel = new DetallePersonaViewModel(CurrentPersona);
+                PersonaDetalleViewer p = new PersonaDetalleViewer();
+                p.DataContext = detalleViewModel;
+                p.ShowDialog();
                 MessageBox.Show($"Ver mas: {CurrentPersona.Nombre}");
             }
                 
